@@ -1,0 +1,494 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VidyaVista</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css"> <!-- added custom stylesheet -->
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #add8e6; /* Background color for the entire page */
+      }
+
+      .jumbotron 
+      {
+        background-color: hsl(185, 94%, 31%);
+      }
+
+      .ani-container {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .card {
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .card-body {
+        padding: 20px;
+      }
+      
+      .card-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .card-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+        border: none;
+        background-color: #337ab7;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      .btn:hover {
+        background-color: #23527c;
+      }
+      
+      .offset-md-4 {
+        margin-left: 33.33%;
+      }
+
+      .features-section {
+        /* Style the overall section, like background color, padding, etc. */
+      }
+      
+      .feature-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
+      }
+      
+      .feature-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      .explore-btn {
+        /* Style the buttons, like color, hover color, etc. */
+      }
+      
+      .explore-btn.pulse {
+        animation: pulse 1s infinite ease-in-out;
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+    </style>
+
+    <script>
+        // JavaScript code goes here
+        // Add animation to cards when they come into view
+$(document).ready(function() {
+    $('body').scrollspy({
+      target: '.ani-container',
+      offset: 200
+    });
+  
+    $('.card').on('activate.bs.scrollspy', function() {
+      $(this).addClass('animated bounceIn');
+    });
+  });
+
+  // Add hover effect to buttons with a slight animation
+const exploreButtons = document.querySelectorAll('.explore-btn');
+
+exploreButtons.forEach(button => {
+  button.addEventListener('mouseenter', () => {
+    button.classList.add('pulse');
+  });
+  button.addEventListener('mouseleave', () => {
+    button.classList.remove('pulse');
+  });
+});
+      </script>
+
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">VidyaVista</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Marks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Payments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Resources</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Optional) -->
+  <section class="jumbotron text-center text-white">
+    <div class="container">
+      <h1 class="display-4">Welcome to Student Management System</h1>
+      <p class="lead">Manage your academic journey with ease</p>
+      <hr class="my-4">
+      <p>Get organized, track your progress, and succeed!</p>
+      <a class="btn btn-light btn-lg" href="#" role="button">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Announcements & News -->
+  <section class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h2 class="text-center mb-4">Latest Announcements</h2>
+        <div class="card border-primary">
+          <div class="card-body">
+            <h5 class="card-title">Important Deadline</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            <a href="#" class="btn btn-outline-primary d-block mx-auto">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Student Dashboard -->
+<section class="container mt-5 ani-container">
+  <h2 class="text-center">Student Dashboard</h2>
+  <div class="row">
+    <!-- Personal Information -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">Personal Information</h5>
+          <!-- Add form fields for personal information -->
+          <p class="card-text">Name: John Doe</p>
+          <p class="card-text">Email: john@example.com</p>
+          <!-- Add more fields as needed -->
+          <a href="Profile.html" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Timetable -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">Timetable</h5>
+          <!-- Add timetable content here -->
+          <p class="card-text">Monday: Math (9:00 AM - 11:00 AM)</p>
+          <!-- Add more timetable details -->
+          <a href="#" class="btn btn-primary">View Full Schedule</a>
+        </div>
+      </div>
+    </div>
+    <!-- Course and Attendance -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">Course and Attendance</h5>
+          <!-- Add Notes,Assignment,Attendence content here -->
+          <p class="card-text">Notes, Assignment, Attendance</p>
+          <!-- Add more details -->
+          <a href="#" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Marks/Grades -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">Marks/Grades</h5>
+          <!-- Add marks/grades content here -->
+          <p class="card-text">Semester GPA: 3.5</p>
+          <!-- Add more marks/grades details -->
+          <a href="#" class="btn btn-primary">View Marks/Grades</a>
+        </div>
+      </div>
+    </div>
+    <!-- Payments -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">Payments</h5>
+          <!-- Add payments content here -->
+          <p class="card-text">Last Payment: 25/08/2021 - $200</p>
+          <!-- Add more payments details -->
+          <a href="#" class="btn btn-primary">View Payments History</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container mt-5 features-section">
+    <h2>Additional Features</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">Organization Tools</h5>
+            <p class="card-text">
+              Link to Google Calendar, or implement a built-in calendar with task management and note-taking features. Personal TimeTable, manage schedules, assignments, and deadlines and Reminders.
+            </p>
+            <button class="btn btn-primary explore-btn">Explore</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">Collaboration Features</h5>
+            <p class="card-text">
+              Integrate with Google Classroom for group projects, allowing students to work together on projects, share notes, and discuss topics (Communication).
+            </p>
+            <button class="btn btn-primary explore-btn">Explore</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">Resource Hub</h5>
+            <p class="card-text">
+              A central location for academic resources, provide links to a dedicated portal with textbook exchange resources, scholarship listings, campus event calendar, and career resources.
+            </p>
+            <button class="btn btn-primary explore-btn">Explore</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">Mental Health & Wellbeing</h5>
+            <p class="card-text">
+                This service provides free consultations with mental health professionals. Contact details:
+                Toll-free: 14416 or 1800-891-4416.
+            </p>
+           
+            <a href="https://telemanas.mohfw.gov.in/#/home" class="btn btn-primary">Explore1</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">AI-powered Features</h5>
+            <p class="card-text">
+              AI-powered chatbot for basic questions and personalized learning recommendations.
+            </p>
+            <button class="btn btn-primary explore-btn">Explore</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">Gamification</h5>
+            <p class="card-text">
+              Adding game mechanics like points, badges, and leaderboards can increase student engagement.
+            </p>
+            <button class="btn btn-primary explore-btn">Explore</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">Interactive Learning</h5>
+            <p class="card-text">
+              Incorporate quizzes, polls, or simulations to make learning more interactive.
+            </p>
+            <button class="btn btn-primary explore-btn">Explore</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card">
+          <div class="card-body">
+            <h5 class="card-title">Communication Tools</h5>
+            <p class="card-text">
+              Integrate a chat or messaging system for students to connect with classmates and instructors.
+            </p>
+            <button class="btn btn-primary explore-btn">Explore</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 mb-4">
+    <div class="card feature-card">
+      <div class="card-body">
+        <h5 class="card-title">Beyond the Textbook</h5>
+        <p class="card-text">
+            Essential Features for College Success.
+        </p>
+        <a href="https://mettl.com/aptitude-tests/" class="btn btn-primary">Explore1</a>
+        <a href="https://www.indiabix.com/" class="btn btn-primary">Explore2</a>
+        <a href="https://www.aptitude-test.com/" class="btn btn-primary">Explore3</a>
+        <a href="https://www.geeksforgeeks.org/aptitude-for-placements/" class="btn btn-primary">Explore4</a>
+    </div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Practice Typing</h5>
+        <p class="card-text">Adding a typing practice game can enhance your student web application's value proposition and make it a more well-rounded learning tool.</p>
+        <a href="https://www.typingclub.com/" class="btn btn-primary">Explore1</a>
+        <a href="https://www.nitrotype.com/" class="btn btn-primary">Explore2</a>
+        <a href="https://www.typing.com/" class="btn btn-primary">Explore3</a>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">College Board</h5>
+        <p class="card-text">The College Board offers resources for the SAT, a standardized test that assesses reading, writing and math skills. While not strictly an "aptitude" test, it can be helpful for college readiness.</p>
+        <a href="https://www.collegeboard.org/" class="btn btn-primary">Explore</a>
+        
+      </div>
+    </div>
+  </div>
+
+        
+      </div>
+      </section>
+
+ <!-- View Feedback -->
+      <section class="container mt-5">
+        <h2 class="text-center mb-4">Feedback/Suggestion</h2>
+        <div class="row">
+          <!-- Submit Feedback Form -->
+          <div class="col-md-6 mb-4" id="submitFeedbackForm">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Submit Feedback</h5>
+                <!-- Feedback form -->
+                <form id="feedbackForm">
+                  <div class="form-group">
+                    <label for="feedbackType">Feedback Type</label>
+                    <select class="form-control" id="feedbackType">
+                      <option>Suggestion</option>
+                      <option>Complaint</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="anonymous">
+                    <label class="form-check-label" for="anonymous">Submit anonymously</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- View Feedback -->
+          <div class="col-md-6 mb-4" id="viewFeedbackList">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">View Feedback</h5>
+                <!-- Feedback list -->
+                <ul class="list-group" id="feedbackList">
+                  <li class="list-group-item">Feedback 1</li>
+                  <li class="list-group-item">Feedback 2</li>
+                  <!-- Add more feedback items dynamically -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        // JavaScript for adjusting alignment and adding animation
+        window.addEventListener('DOMContentLoaded', (event) => {
+          // Get the height of both columns
+          const submitFeedbackHeight = document.getElementById('submitFeedbackForm').offsetHeight;
+          const viewFeedbackHeight = document.getElementById('viewFeedbackList').offsetHeight;
+      
+          // Set the height of both columns to the maximum height
+          const maxHeight = Math.max(submitFeedbackHeight, viewFeedbackHeight);
+          document.getElementById('submitFeedbackForm').style.height = maxHeight + 'px';
+          document.getElementById('viewFeedbackList').style.height = maxHeight + 'px';
+      
+          // Add animation
+          document.getElementById('submitFeedbackForm').classList.add('animated', 'fadeInLeft');
+          document.getElementById('viewFeedbackList').classList.add('animated', 'fadeInRight');
+        });
+      </script>
+    
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>About</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="col-md-6">
+          <h4>Contact</h4>
+          <p>Phone: (123) 456-7890</p>
+          <p>Email: info@example.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
